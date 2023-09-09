@@ -1,7 +1,7 @@
-package com.suhan.core.service;
+package com.suhan.platform.service;
 
-import com.suhan.core.entity.Gender;
-import com.suhan.core.entity.User;
+import com.suhan.platform.entity.Gender;
+import com.suhan.platform.entity.User;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

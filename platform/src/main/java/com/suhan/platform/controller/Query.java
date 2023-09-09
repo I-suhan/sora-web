@@ -1,7 +1,7 @@
-package com.suhan.core.controller;
+package com.suhan.platform.controller;
 
-import com.suhan.core.service.DemoService;
-import com.suhan.core.entity.User;
+import com.suhan.platform.entity.User;
+import com.suhan.platform.service.DemoService;
 import graphql.kickstart.tools.GraphQLQueryResolver;
 import org.springframework.stereotype.Component;
 

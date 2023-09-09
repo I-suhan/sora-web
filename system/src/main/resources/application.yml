@@ -1,1 +1,44 @@
+server:
+  port: 8080
+  tomcat:
+    max-swallow-size: -1
+  error:
+    include-exception: true
+    include-stacktrace: ALWAYS
+    include-message: ALWAYS
+  servlet:
+    context-path: /sora
+  compression:
+    enabled: true
+    min-response-size: 1024
+    mime-types: application/javascript,application/json,application/xml,text/html,text/xml,text/plain,text/css,image/*
 
+spring:
+  aop:
+    proxy-target-class: true
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      jdbc-url: jdbc:mysql://localhost:3306/sora?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8&useSSL=false&allowPublicKeyRetrieval=true
+      ## 连接池的用户定义名称
+      pool-name: sora-database
+      ## 连接池空闲连接的最小数量
+      minimum-idle: 10
+      ## 池中最大连接数，包括闲置和使用中的连接
+      maximum-pool-size: 20
+      ## 连接允许在池中闲置的最长时间
+      idle-timeout: 300000
+      ## 等待来自池的连接的最大毫秒数
+      connection-timeout: 300000
+      ## 连接存活时间
+      keepalive-time: 30000
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+  cache:
+    redis:
+      use-key-prefix: true

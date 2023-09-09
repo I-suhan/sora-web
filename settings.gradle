@@ -1,1 +1,6 @@
-rootProject.name = 'sora-server'
+rootProject.name = 'sora-web'
+include 'system'
+include 'platform'
+include 'common'
+include 'config'
+

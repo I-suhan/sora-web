@@ -1,0 +1,30 @@
+type Query{
+    getOneUser(id:Int): User
+    getALlUser: [User]
+}
+
+type Mutation{
+    add(properties : [UserIn]) : [User]
+    edit(properties : [UserIn]) : [User]
+    drop(ids : [ID]) : [ID]
+}
+
+type User{
+    id : ID
+    name : String
+    age : Int
+    gender : Gender
+    friends : [User]
+}
+
+enum Gender {
+   MALE
+   FEMALE
+}
+
+input UserIn{
+    id : ID
+    name : String
+    age : Int
+    gender : Gender
+}

@@ -1,4 +1,4 @@
-package com.suhan.core.entity;
+package com.suhan.platform.entity;
 
 public enum Gender {
 

@@ -1,12 +1,8 @@
-package com.suhan.core.provider;
+package com.suhan.platform.provider;
 
-import com.suhan.core.controller.Query;
-import com.suhan.core.service.DemoService;
+import com.suhan.platform.service.DemoService;
 import graphql.GraphQL;
-import graphql.kickstart.tools.SchemaParser;
-import graphql.schema.GraphQLSchema;
 import jakarta.annotation.PostConstruct;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
@@ -28,5 +24,6 @@ public class DemoProvider {
 
     @PostConstruct
     public void init(){
+        //todo
     }
 }

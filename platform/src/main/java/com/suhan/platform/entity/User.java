@@ -1,4 +1,4 @@
-package com.suhan.core.entity;
+package com.suhan.platform.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
