@@ -2,15 +2,24 @@ package com.suhan.platform.service;
 
 import com.suhan.platform.entity.Gender;
 import com.suhan.platform.entity.User;
+import com.suhan.platform.repository.UserRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
-public class DemoService {
+public class UserService {
 
-    public User getUser(){
+    private final UserRepository userRepository;
+
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
+    public User getStaticUser(){
         User user = new User();
         user.setId("aaaa111");
         user.setName("mike");
@@ -37,5 +46,14 @@ public class DemoService {
         list.add(friend3);
         user.setFriends(list);
         return user;
+    }
+
+    public User getRepositoryUser(String userId){
+        return userRepository.getReferenceById(userId);
+    }
+
+    @Transactional(readOnly = true)
+    public List<User> getUsers(int size) {
+        return userRepository.findAll().stream().limit(size).collect(Collectors.toList());
     }
 }

@@ -1,6 +1,7 @@
 type Query{
+    getUsers(size: Int): [User]
     getOneUser(id:Int): User
-    getALlUser: [User]
+    getStaticUser: [User]
 }
 
 type Mutation{

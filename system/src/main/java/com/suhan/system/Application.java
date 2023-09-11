@@ -9,29 +9,24 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.core.env.Environment;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import java.net.InetAddress;
-import java.net.UnknownHostException;
-import java.util.Objects;
-
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "com.suhan")
 @ServletComponentScan
 @EnableTransactionManagement
 @Slf4j
 public class Application {
 
-    public static void main(String[] args) throws UnknownHostException {
+    public static void main(String[] args) {
         SpringApplication application = new SpringApplication(Application.class);
         application.setBannerMode(Banner.Mode.OFF);
         ConfigurableApplicationContext context = application.run(args);
         Environment env = context.getEnvironment();
-        String ip = InetAddress.getLocalHost().getHostAddress();
         String port = env.getProperty("server.port");
-        String path = Objects.requireNonNull(env.getProperty("server.servlet.context-path")).trim();
         String s = """
-                ----------------------------------------------------------
-                External:http://" + {}:{}{}
+                
+                ----------------------------------------
+                QLTest:http://localhost:{}/graphiql
                 ----------------------------------------------------------""";
-        log.info(s, ip, port, path);
+        log.info(s, port);
     }
 
 }
